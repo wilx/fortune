@@ -1373,6 +1373,11 @@ void get_fort(void)
 	}
 	get_tbl(fp);
     }
+    if (fp->tbl.str_numstr == 0)
+    {
+        fprintf(stderr, "fortune: no fortune found\n");
+        exit(1);
+    }
     if (fp->child != NULL)
     {
 	DPRINTF(1, (stderr, "picking child\n"));
