@@ -1083,7 +1083,7 @@ void init_prob(void)
 	    {
 		frac = percent / num_noprob;
 		DPRINTF(1, (stderr, ", frac = %d%%", frac));
-		for (fp = File_list; fp != last; fp = fp->next)
+		for (fp = File_tail; fp != last; fp = fp->prev)
 		    if (fp->percent == NO_PROB)
 		    {
 			fp->percent = frac;
