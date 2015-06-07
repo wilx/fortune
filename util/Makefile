@@ -8,16 +8,16 @@
 all: strfile unstr rot
 
 strfile: strfile.o
-	$(CC) $(LDFLAGS) -o strfile strfile.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -o strfile strfile.o
 
 unstr: unstr.o
-	$(CC) $(LDFLAGS) -o unstr unstr.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -o unstr unstr.o
 
 randstr: randstr.o
-	$(CC) $(LDFLAGS) -o randstr randstr.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -o randstr randstr.o
 
 rot: rot.o
-	$(CC) $(LDFLAGS) -o rot rot.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -o rot rot.o
 
 clean:
 	rm -f *.o unstr strfile randstr rot ansify
