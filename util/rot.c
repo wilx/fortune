@@ -4,11 +4,12 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 
 int main(void)
 {
-    char a, b;
+    int a, b;
 
     while ((a = getchar()) != EOF)
     {
