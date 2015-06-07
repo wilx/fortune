@@ -79,6 +79,7 @@
 #include	<stdio.h>
 #include	<ctype.h>
 #include	<string.h>
+#include        <inttypes.h>
 #include	"strfile.h"
 
 #ifndef MAXPATHLEN
@@ -513,9 +514,9 @@ int main(int ac, char **av)
 		puts("There was 1 string");
 	    else
 		printf("There were %ld strings\n", Num_pts - 1);
-	    printf("Longest string: %lu byte%s\n", Tbl.str_longlen, 
+	    printf("Longest string: %" PRIu32 " byte%s\n", Tbl.str_longlen, 
 		Tbl.str_longlen == 1 ? "" : "s");
-	    printf("Shortest string: %lu byte%s\n", Tbl.str_shortlen,
+	    printf("Shortest string: %" PRIu32 " byte%s\n", Tbl.str_shortlen,
 		Tbl.str_shortlen == 1 ? "" : "s");
 	}
     }
