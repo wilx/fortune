@@ -96,6 +96,7 @@ static char sccsid[] = "@(#)unstr.c	8.1 (Berkeley) 5/31/93";
 #include	<ctype.h>
 #include	<string.h>
 #include	<unistd.h>
+#include        <stdlib.h>
 
 #ifndef MAXPATHLEN
 #define	MAXPATHLEN	1024
