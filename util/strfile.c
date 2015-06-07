@@ -440,7 +440,7 @@ int main(int ac, char **av)
      */
 
     Tbl.str_longlen = 0;
-    Tbl.str_shortlen = (unsigned int) 0xffffffff;
+    Tbl.str_shortlen = UINT32_MAX;
     Tbl.str_delim = Delimch;
     Tbl.str_version = VERSION;
     first = Oflag;
@@ -448,11 +448,11 @@ int main(int ac, char **av)
     last_off = 0;
     do
     {
-	sp = fgets(string, 256, inf);
+      sp = (unsigned char *) fgets(string, 256, inf);
 	if (sp == NULL || STR_ENDSTRING(sp, Tbl))
 	{
 	    pos = ftell(inf);
-	    length = pos - last_off - (sp ? strlen(sp) : 0);
+	    length = pos - last_off - (sp ? strlen((char *) sp) : 0);
 	    if (!length)
 		/* Here's where we go back and fix things, if the
 		 * 'fortune' just read was the null string.
@@ -475,7 +475,7 @@ int main(int ac, char **av)
 	}
 	else if (first)
 	{
-	    for (nsp = sp; !isalnum(*nsp); nsp++)
+            for (nsp = (char *) sp; !isalnum(*nsp); nsp++)
 		continue;
 	    ALLOC(Firstch, Num_pts);
 	    fp = &Firstch[Num_pts - 1];
